@@ -1,19 +1,11 @@
 package Test::WWW::Selenium::More;
 
-use LWP::Simple;
 use Moose;
-use Sys::Hostname;
 use Test::WWW::Selenium;
 use namespace::autoclean;
 use feature qw/say/;
 
 our $VERSION = '0.07';
-
-BEGIN {
-    $ENV{HH_SELENIUM_TESTING} = 1;
-    use HHoldings::Core;
-    HHoldings::Core->test(1);
-}
 
 =head1 NAME
 

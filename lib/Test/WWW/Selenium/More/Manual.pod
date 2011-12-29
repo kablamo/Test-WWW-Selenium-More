@@ -1,0 +1,81 @@
+package HHoldings::Core::Selenium::Manual;
+
+=head1 NAME
+
+HHoldings::Core::Selenium::Manual - Testing with Selenium
+
+
+=head1 INSTALL THE SELENIUM SERVER
+
+Selenium is written in Java.  So you need Java.  Then download the latest jar
+file from http://seleniumhq.org/download.  Put it anywhere.
+
+
+=head1 WRITE A BASIC SELENIUM TEST
+
+    # in the file t/test.t write the following code:
+    use HHoldings::Core::Selenium;
+    my $s = HHoldings::Core::Selenium->new; 
+    $s->note('this is a test.  this is only a test.')
+      ->open_ok("/");
+
+
+=head1 RUNNING SELENIUM TESTS
+
+This section describes setting up and running Selenium tests on the command
+line.
+
+Basic setup
+
+    # Start your web server on localhost (port 80)
+    ...
+
+    # Start the Selenium server
+    java -jar selenium-server.jar -port 4444 -trustAllSSLCertificates -browserSessionReuse
+
+    # Run your tests against localhost (port 80)
+    prove -lrv t/test.t
+
+
+Headless server setup
+
+    # Start Xvfb so you can run a web browser without X Windows
+    Xvfb :99
+
+    # Start the Selenium server
+    DISPLAY=:99 java -jar selenium-server.jar -port 4444 -trustAllSSLCertificates -browserSessionReuse
+
+    # Run your tests: 
+    prove -lrv t/test.t
+
+
+Run Selenium tests against a remote website
+
+    SELENIUM_BROWSER_URL=http://example.com prove -lrv t/test.t
+
+
+Run tests against a remote Selenium server
+
+    # Start the Selenium server on the remote host (lets say 99.99.99.99).  
+    # Then run your tests locally like this:
+    SELENIUM_HOST=99.99.99.99 prove -lrv t/test.t
+
+
+Running tests slowly
+
+    # Test fly by too fast sometimes.  This slows things down.  It basically
+    # calls sleep after every call to the Selenium server
+    SELENIUM_SLEEP=1 prove -lrv t/test.t
+
+
+Also see the ENVIRONMENT VARIABLES section of HHoldings::Core::Selenium
+documentation.
+
+
+=head1 WRITING MORE ADVANCED TESTS
+
+TODO
+
+
+
+=cut

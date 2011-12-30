@@ -9,15 +9,15 @@ our $VERSION = '0.07';
 
 =head1 NAME
 
-HHoldings::Core::Selenium - Testing with Selenium
+Test::WWW::Selenium::More - Useful methods for Selenium testing
 
 =head1 SYNPOSIS
 
-    use HHoldings::Core::Selenium;
-    my $s = HHoldings::Core::Selenium->new; 
-    $s->note('this is a test.  this is only a test.')
-      ->login()
-      ->open_ok("/");
+    use Test::WWW::Selenium::More;
+    Test::WWW::Selenium::More->new
+      ->note('this is a test.  this is only a test.')
+      ->open_ok("/") 
+      ->download_file_ok('link=Download the pdf');
     
 
 =head1 DESCRIPTION
@@ -30,7 +30,7 @@ This library also provides method chaining and extra convenience methods.
 
 =head1 RUNNING TESTS
 
-See the RUNNING TESTS section of HHoldings::Core::Selenium::Manual.
+See the RUNNING TESTS section of Test::WWW::Selenium::More::Manual.
 
 
 =head1 ENVIRONMENT VARIABLES
@@ -207,12 +207,12 @@ Here is an example of what the contents of $file could look like:
 
 (
     {
-         name => 'test mortgages',
-         link => 'Mortgages',
-         text => 'Alexander Hall',
+         name => 'Name of my test',
+         link => 'Click me',
+         text => 'Ponies',
     },
     {
-         name => 'test download stuff',
+         name => 'Test downloading stuff',
          link => 'Download',
          text => 'Download worked',
     },

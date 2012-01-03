@@ -1,8 +1,8 @@
-package HHoldings::Core::Selenium::Manual;
+package Test::WWW::Selenium::More::Manual;
 
 =head1 NAME
 
-HHoldings::Core::Selenium::Manual - Testing with Selenium
+Test::WWW::Selenium::More::Manual - Testing with Selenium
 
 
 =head1 INSTALL THE SELENIUM SERVER

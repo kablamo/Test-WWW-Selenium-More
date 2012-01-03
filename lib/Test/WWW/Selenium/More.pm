@@ -3,7 +3,6 @@ package Test::WWW::Selenium::More;
 use Moose;
 use Test::WWW::Selenium;
 use namespace::autoclean;
-use feature qw/say/;
 
 our $VERSION = '0.07';
 
@@ -17,7 +16,8 @@ Test::WWW::Selenium::More - Useful methods for Selenium testing
     Test::WWW::Selenium::More->new
       ->note('this is a test.  this is only a test.')
       ->open_ok("/") 
-      ->download_file_ok('link=Download the pdf');
+      ->is_text_present_ok("Welcome to the internet") 
+      ->download_file_ok('link=Download my file');
     
 
 =head1 DESCRIPTION

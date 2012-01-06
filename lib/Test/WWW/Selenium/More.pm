@@ -340,7 +340,7 @@ sub submit_form_ok {
     return $self;
 }
 
-=head2 wait_for_ajax_ok()
+=head2 wait_for_jquery_ok()
 
 Returns $self.
 
@@ -348,30 +348,30 @@ This blocks until jQuery.active to return false.
 
 =cut
 
-sub wait_for_ajax_ok {
+sub wait_for_jquery_ok {
     my ($self) = @_;
 
     $self->wait_for_condition_ok(
         'selenium.browserbot.getCurrentWindow().jQuery.active == 0',
         $self->_timeout,                               #
-        'wait_for_ajax_to_load, ' . $self->_timeout    #
+        'wait_for_jquery_to_load, ' . $self->_timeout    #
     );
 
     return $self;
 }
 
-=head2 ajax_select_ok($locator, $menu_option)
+=head2 jquery_select_ok($locator, $menu_option)
 
 Returns $self.
 
 $locator should point to a dropdown menu on the page.  This method will select
-the $menu_option from the dropdown.  Then it will call wait_for_ajax().
+the $menu_option from the dropdown.  Then it will call wait_for_jquery().
 
 =cut
 
-sub ajax_select_ok {
+sub jquery_select_ok {
     my $self = shift;
-    $self->select_ok(@_) && $self->wait_for_ajax_ok;
+    $self->select_ok(@_) && $self->wait_for_jquery_ok;
     return $self;
 }
 
@@ -391,18 +391,18 @@ sub select_and_page_load_ok {
     return $self;
 }
 
-=head2 ajax_click_ok($locator, $menu_option)
+=head2 jquery_click_ok($locator, $menu_option)
 
 Returns $self.
 
-Click whatever is located at $locator.  Then wait for ajax to finish by
-calling wait_for_ajax().
+Click whatever is located at $locator.  Then wait for jquery to finish by
+calling wait_for_jquery().
 
 =cut
 
-sub ajax_click_ok {
+sub jquery_click_ok {
     my $self = shift;
-    $self->click_ok(@_) && $self->wait_for_ajax_ok;
+    $self->click_ok(@_) && $self->wait_for_jquery_ok;
     return $self;
 }
 

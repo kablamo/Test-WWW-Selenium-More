@@ -7,7 +7,7 @@ plan skip_all => "No Selenium server found!" unless server_is_running;
 my $s = Test::WWW::Selenium->new(
     host           => "localhost",
     browser        => "*firefox",
-    browser_url    => "http://www.google.com",
+    browser_url    => "http://google.com",
 );
 $s->open_ok('http://google.com/');
 $s->is_text_present_ok('Google');

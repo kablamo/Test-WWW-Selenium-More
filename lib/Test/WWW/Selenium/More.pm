@@ -1,5 +1,6 @@
 package Test::WWW::Selenium::More;
 
+use Carp;
 use Moose;
 use Test::WWW::Selenium;
 use namespace::autoclean;
@@ -111,7 +112,7 @@ sub _browser  { $ENV{SELENIUM_BROWSER}  || '*chrome' }
 sub _autostop { $ENV{SELENIUM_AUTOSTOP} || 1 }
 sub _slow     { $ENV{SELENIUM_SLOW}     || 0 }
 
-sub _browser_url { $ENV{SELENIUM_BROWSER_URL} }
+sub _browser_url { $ENV{SELENIUM_BROWSER_URL} || confess 'browser_url is required' }
 
 # Delegation.  This effectively wraps Test::WWW::Selenium.
 # TODO I think this is kinda slow.  Or maybe Moose is always slow?

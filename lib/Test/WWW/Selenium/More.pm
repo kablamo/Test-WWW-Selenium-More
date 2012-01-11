@@ -26,6 +26,8 @@ Test::WWW::Selenium::More - Useful methods for Selenium testing
 This library extends Test::WWW::Selenium.   Please see that module's
 documentation.
 
+Leo Rocks!!!
+
 This library also provides method chaining and extra convenience methods. 
 
 

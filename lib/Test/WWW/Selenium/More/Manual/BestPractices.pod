@@ -1,0 +1,20 @@
+package Test::WWW::Selenium::Manual::BestPractices;
+
+=head1 NAME
+
+Test::WWW::Selenium::Manual::BestPractices - Best practices for writing Selenium tests
+
+
+=head1 BEST PRACTICES
+
+Following these guidelines will make your life easier when writing Selenium tests.
+
+
+=head2 Never sleep()
+
+Either use wait_for_page_to_load_ok() or jquery_wait_for_page_to_load_ok().
+sleep() will make your tests take a long time and will cause hard to explain
+intermittent failures.
+
+
+=cut

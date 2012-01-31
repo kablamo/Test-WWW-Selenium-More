@@ -1,81 +1,80 @@
-package Test::WWW::Selenium::More::Manual;
+package Test::WWW::Selenium::Manual;
 
 =head1 NAME
 
-Test::WWW::Selenium::More::Manual - Testing with Selenium
+Test::WWW::Selenium::Manual - Testing with Selenium
 
 
-=head1 INSTALL THE SELENIUM SERVER
+=head1 INTRODUCTION
 
-Selenium is written in Java.  So you need Java.  Then download the latest jar
-file from http://seleniumhq.org/download.  Put it anywhere.
+Test-WWW-Selenium is a test library that enables you to write user interface
+tests for your web application.  You can fill out forms, click buttons and
+links, and generally control any supported browser from your Perl tests.  
 
-
-=head1 WRITE A BASIC SELENIUM TEST
-
-    # in the file t/test.t write the following code:
-    use HHoldings::Core::Selenium;
-    my $s = HHoldings::Core::Selenium->new; 
-    $s->note('this is a test.  this is only a test.')
-      ->open_ok("/");
+It works by sending commands to a Selenium server via HTTP GET/POST requests.
+The Selenium server will spawn a browser and control it using using JavaScript.
+You can watch your tests interacting with your web application in the browser.
+You can also setup things so that the tests run headless without opening a
+browser.
 
 
-=head1 RUNNING SELENIUM TESTS
+=head1 TABLE OF CONTENTS
 
-This section describes setting up and running Selenium tests on the command
-line.
+=over 4
 
-Basic setup
+=item L<Test::WWW::Selenium::Manual::ForTheImpatient>
 
-    # Start your web server on localhost (port 80)
-    ...
+Selenium testing for the impatient:  A short example demonstrating writing and
+running Selenium tests.
 
-    # Start the Selenium server
-    java -jar selenium-server.jar -port 4444 -trustAllSSLCertificates -browserSessionReuse
+=item L<Test::WWW::Selenium::Manual::WriteTests>
 
-    # Run your tests against localhost (port 80)
-    prove -lrv t/test.t
+How to write Selenium tests.  Includes examples.
 
+=item L<Test::WWW::Selenium::Manual::RunTests>
 
-Headless server setup
+How to run Selenium tests.  Walk through several common scenarios including
+headless tests and slow tests.
 
-    # Start Xvfb so you can run a web browser without X Windows
-    Xvfb :99
+=item L<Test::WWW::Selenium::Manual::BestPractices>
 
-    # Start the Selenium server
-    DISPLAY=:99 java -jar selenium-server.jar -port 4444 -trustAllSSLCertificates -browserSessionReuse
+Avoid the most common mistakes.  
 
-    # Run your tests: 
-    prove -lrv t/test.t
+=item L<Test::WWW::Selenium::Manual::AllMethods>
 
+A complete list of methods available.  Test::WWW::Selenium inherits from
+WWW::Selenium which sends commands to the Selenium server.  Each layer builds
+on the last and each layer introduces new commands.  This document provides a
+complete list of all the methods provided by all 3 layers.
 
-Run Selenium tests against a remote website
-
-    SELENIUM_BROWSER_URL=http://example.com prove -lrv t/test.t
+=back
 
 
-Run tests against a remote Selenium server
+=head1 HOW TO INSTALL THE SELENIUM SERVER
 
-    # Start the Selenium server on the remote host (lets say 99.99.99.99).  
-    # Then run your tests locally like this:
-    SELENIUM_HOST=99.99.99.99 prove -lrv t/test.t
+=head2 How to install Selenium
 
+Selenium is written in Java.  So you need Java.  Ubuntu users should already
+have Java installed (C</usr/bin/java>). 
 
-Running tests slowly
+Then download the latest Selenium Server jar file from
+http://seleniumhq.org/download.  Put it anywhere.  You can run the server with
+this command: 
 
-    # Test fly by too fast sometimes.  This slows things down.  It basically
-    # calls sleep after every call to the Selenium server
-    SELENIUM_SLEEP=1 prove -lrv t/test.t
-
-
-Also see the ENVIRONMENT VARIABLES section of HHoldings::Core::Selenium
-documentation.
+    java -jar selenium-server.jar -h
 
 
-=head1 WRITING MORE ADVANCED TESTS
+=head2 How to install Xvfb
 
-TODO
+Xvfb or X virtual frame buffer is an X server that enables you to run X windows
+applications without showing any screen output.  If you run this with a
+Selenium server, you can run your tests on various browsers on a server with no
+monitor and without X windows installed.  See an example of how to do this in
+L<Test::WWW::Selenium::Manual::RunningTests>.
 
+To install Xvfb on Ubuntu:
+
+    sudo apt-get install xvfb
 
 
 =cut

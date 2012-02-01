@@ -5,9 +5,7 @@ use Moose;
 use Test::WWW::Selenium;
 use namespace::autoclean;
 
-=head1 NAME
-
-Test::WWW::Selenium::More - Useful methods for Selenium testing
+# ABSTRACT: More useful tools for Selenium testing
 
 =head1 SYNPOSIS
 

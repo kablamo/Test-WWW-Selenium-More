@@ -1,10 +1,5 @@
 package Test::WWW::Selenium::More::Manual;
 
-=head1 NAME
-
-Test::WWW::Selenium::More::Manual - Testing with Selenium
-
-
 =head1 INSTALL THE SELENIUM SERVER
 
 Selenium is written in Java.  So you need Java.  Then download the latest jar

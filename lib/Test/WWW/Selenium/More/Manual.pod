@@ -1,8 +1,8 @@
-package Test::WWW::Selenium::Manual;
+package Test::WWW::Selenium::More::Manual;
 
 =head1 NAME
 
-Test::WWW::Selenium::Manual - Testing with Selenium
+Test::WWW::Selenium::More::Manual - Testing with Selenium
 
 
 =head1 INTRODUCTION
@@ -22,59 +22,36 @@ browser.
 
 =over 4
 
-=item L<Test::WWW::Selenium::Manual::ForTheImpatient>
+=item L<Test::WWW::Selenium::More::Manual::ForTheImpatient>
 
 Selenium testing for the impatient:  A short example demonstrating writing and
 running Selenium tests.
 
-=item L<Test::WWW::Selenium::Manual::WriteTests>
+=item L<Test::WWW::Selenium::More::Manual::InstallSelenium>
 
 How to write Selenium tests.  Includes examples.
 
-=item L<Test::WWW::Selenium::Manual::RunTests>
+=item L<Test::WWW::Selenium::More::Manual::WriteTests>
+
+How to write Selenium tests.  Includes examples.
+
+=item L<Test::WWW::Selenium::More::Manual::RunTests>
 
 How to run Selenium tests.  Walk through several common scenarios including
 headless tests and slow tests.
 
-=item L<Test::WWW::Selenium::Manual::BestPractices>
+=item L<Test::WWW::Selenium::More::Manual::BestPractices>
 
 Avoid the most common mistakes.  
 
-=item L<Test::WWW::Selenium::Manual::AllMethods>
+=item L<Test::WWW::Selenium::More::Manual::AllMethods>
 
 A complete list of methods available.  Test::WWW::Selenium inherits from
 WWW::Selenium which sends commands to the Selenium server.  Each layer builds
 on the last and each layer introduces new commands.  This document provides a
-complete list of all the methods provided by all 3 layers.
+complete list of all the methods provided by all layers.
 
 =back
-
-
-=head1 HOW TO INSTALL THE SELENIUM SERVER
-
-=head2 How to install Selenium
-
-Selenium is written in Java.  So you need Java.  Ubuntu users should already
-have Java installed (C</usr/bin/java>). 
-
-Then download the latest Selenium Server jar file from
-http://seleniumhq.org/download.  Put it anywhere.  You can run the server with
-this command: 
-
-    java -jar selenium-server.jar -h
-
-
-=head2 How to install Xvfb
-
-Xvfb or X virtual frame buffer is an X server that enables you to run X windows
-applications without showing any screen output.  If you run this with a
-Selenium server, you can run your tests on various browsers on a server with no
-monitor and without X windows installed.  See an example of how to do this in
-L<Test::WWW::Selenium::Manual::RunningTests>.
-
-To install Xvfb on Ubuntu:
-
-    sudo apt-get install xvfb
 
 
 =cut

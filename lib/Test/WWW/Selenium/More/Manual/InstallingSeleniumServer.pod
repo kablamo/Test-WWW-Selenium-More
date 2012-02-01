@@ -11,7 +11,7 @@ Selenium is written in Java.  So you need Java.  Ubuntu users should already
 have Java installed (C</usr/bin/java>). 
 
 Then download the latest Selenium Server jar file from
-http://seleniumhq.org/download.  Put it anywhere.  You can run the server with
+L<http://seleniumhq.org/download>.  Put it anywhere.  You can run the server with
 this command: 
 
     java -jar selenium-server.jar -h

@@ -5,8 +5,6 @@ use Moose;
 use Test::WWW::Selenium;
 use namespace::autoclean;
 
-our $VERSION = '0.07';
-
 =head1 NAME
 
 Test::WWW::Selenium::More - Useful methods for Selenium testing

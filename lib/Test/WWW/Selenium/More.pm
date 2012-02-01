@@ -559,12 +559,6 @@ sub change_speed {
     return $self;
 }
 
-=head1 AUTHOR
-
-Eric Johnson, kablamo at iijo dot nospamthankyew dot org
-
-=cut
-
 1;
 
 # I used this command to get the list of functions in WWW::Selenium:

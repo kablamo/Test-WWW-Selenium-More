@@ -7,7 +7,7 @@ use namespace::autoclean;
 
 # ABSTRACT: More useful tools for Selenium testing
 
-=head1 SYNPOSIS
+=head1 SYNOPSIS
 
     use Test::WWW::Selenium::More;
     Test::WWW::Selenium::More->new

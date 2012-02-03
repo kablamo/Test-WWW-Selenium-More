@@ -27,8 +27,6 @@ selenium server jar file from http://seleniumhq.org/download.  Put it anywhere.
 
 =head1 RUN YOUR SELENIUM TEST
 
-Basic setup
-
     # Start your web server on localhost (port 80)
     ...
 
@@ -37,16 +35,6 @@ Basic setup
 
     # Run your tests against localhost (port 80)
     prove -lrv t/test.t
-
-
-=head1 SEE ALSO
-
-See L<Test::WWW::Selenium::Manual::InstallSelenium> for more details and options.
-
-See L<Test::WWW::Selenium::Manual::WriteTests> for more details and options.
-
-See L<Test::WWW::Selenium::Manual::RunTests> for more examples and details such
-as how to run a headless Selenium server.
 
 
 =cut

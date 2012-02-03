@@ -4,6 +4,7 @@ package Test::WWW::Selenium::Manual;
 
 Test::WWW::Selenium::Manual - Testing with Selenium
 
+
 =head1 A BASIC SELENIUM TEST
 
     # in the file t/test.t write the following code:
@@ -26,15 +27,15 @@ Test::WWW::Selenium::Manual - Testing with Selenium
     $sel->title_like(qr/Google Search/);
     $sel->error_callback(sub {...});
 
+
 =head1 COMPOSING YOUR TESTS USING ROLES
 
-=head1 SEE ALSO 
+TODO
 
-The ENVIRONMENT VARIABLES section of Test::WWW::Selenium documentation.  
 
-The command line options for the selenium server
+=head1 METHOD CHAINING
 
-    java -jar selenium-server.jar -h
+TODO
 
 
 =cut

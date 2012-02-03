@@ -12,9 +12,9 @@ tests for your web application.  You can fill out forms, click buttons and
 links, and generally control any supported browser from your Perl tests.  
 
 It works by sending commands to a Selenium server via HTTP GET/POST requests.
-The Selenium server will spawn a browser and control it using using JavaScript.
-You can watch your tests interacting with your web application in the browser.
-You can also setup things so that the tests run headless without opening a
+The Selenium server spawns a browser and controls it using using JavaScript.
+
+You can also watch your tests interacting with your web application in the
 browser.
 
 
@@ -29,7 +29,7 @@ running Selenium tests.
 
 =item L<Test::WWW::Selenium::More::Manual::InstallSelenium>
 
-How to write Selenium tests.  Includes examples.
+How to install Selenium.
 
 =item L<Test::WWW::Selenium::More::Manual::WriteTests>
 

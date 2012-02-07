@@ -24,8 +24,8 @@ browser.
 
 =item L<Test::WWW::Selenium::More::Manual::ForTheImpatient>
 
-Perl Selenium testing for the impatient:  A short example demonstrating writing
-and running Selenium tests.
+Selenium testing for the impatient:  A short example demonstrating writing
+and running Perl Selenium tests.
 
 =item L<Test::WWW::Selenium::More::Manual::InstallSelenium>
 
@@ -33,11 +33,11 @@ How to install Selenium.
 
 =item L<Test::WWW::Selenium::More::Manual::WriteTests>
 
-How to write Perl Selenium tests.  Includes examples.
+How to write Selenium tests.  Includes examples.
 
 =item L<Test::WWW::Selenium::More::Manual::RunTests>
 
-How to run Perl Selenium tests.  Walk through several common scenarios
+How to run Selenium tests.  Walk through several common scenarios
 including headless tests and slow tests.
 
 =item L<Test::WWW::Selenium::More::Manual::BestPractices>

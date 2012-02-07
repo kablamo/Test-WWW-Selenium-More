@@ -14,26 +14,31 @@ selenium server jar file from http://seleniumhq.org/download.  Put it anywhere.
 =head1 WRITE A BASIC SELENIUM TEST
 
     # put the following code into t/test.t
-    use Test::More tests => 5;
+
+    use Test::Most;
     use Test::WWW::Selenium;
 
-    my $s = Test::WWW::Selenium->new( 
+    my $s = Test::WWW::Selenium::More->new( 
+        host        => 'localhost',
+        port        => 80,
         browser_url => "http://www.google.com",
     );
 
-    $sel->open_ok("http://www.google.com", undef, "fetched G's site alright");
-    $sel->title_like(qr/Google Search/);
+    $s->open_ok("http://www.google.com");
+    $s->title_like(qr/Google Search/);
+
+    done_testing;
 
 
 =head1 RUN YOUR SELENIUM TEST
 
-    # Start your web server on localhost (port 80)
+    # Start your web server on localhost, port 80
     ...
 
     # Start the Selenium server
     java -jar selenium-server.jar -port 4444 -trustAllSSLCertificates -browserSessionReuse
 
-    # Run your tests against localhost (port 80)
+    # Run your tests against localhost, port 80
     prove -lrv t/test.t
 
 

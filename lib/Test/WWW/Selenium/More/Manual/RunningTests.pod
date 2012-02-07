@@ -28,14 +28,14 @@ or with the environment variables described in L<Test::WWW::Selenium::More>.
 =head1 EXAMPLES
 
 These examples assume the web application you want to test is running on
-localhost port 5000.  
+localhost, port 5000.  
 
 Basic setup
 
     # Start the Selenium server
     java -jar selenium-server.jar -port 4444 -trustAllSSLCertificates -browserSessionReuse
 
-    # Run your tests against localhost (port 5000)
+    # Run your tests against your web app running on localhost, port 80
     prove -lrv t/test.t
 
 
@@ -47,7 +47,7 @@ Headless server setup
     # Start the Selenium server
     DISPLAY=:99 java -jar selenium-server.jar -port 4444 -trustAllSSLCertificates -browserSessionReuse
 
-    # Run your tests: 
+    # Run your tests 
     prove -lrv t/test.t
 
 

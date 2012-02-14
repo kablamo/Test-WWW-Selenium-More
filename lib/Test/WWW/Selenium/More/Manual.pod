@@ -9,8 +9,8 @@ file from http://seleniumhq.org/download.  Put it anywhere.
 =head1 WRITE A BASIC SELENIUM TEST
 
     # in the file t/test.t write the following code:
-    use HHoldings::Core::Selenium;
-    my $s = HHoldings::Core::Selenium->new; 
+    use Test::WWW::Selenium::More;
+    my $s = Test::WWW::Selenium::More->new; 
     $s->note('this is a test.  this is only a test.')
       ->open_ok("/");
 
@@ -63,7 +63,7 @@ Running tests slowly
     SELENIUM_SLEEP=1 prove -lrv t/test.t
 
 
-Also see the ENVIRONMENT VARIABLES section of HHoldings::Core::Selenium
+Also see the ENVIRONMENT VARIABLES section of L<Test::WWW::Selenium::More>
 documentation.
 
 

@@ -31,11 +31,11 @@ and running Perl Selenium tests.
 
 How to install Selenium.
 
-=item L<Test::WWW::Selenium::More::Manual::WriteTests>
+=item L<Test::WWW::Selenium::More::Manual::WritingTests>
 
 How to write Selenium tests.  Includes examples.
 
-=item L<Test::WWW::Selenium::More::Manual::RunTests>
+=item L<Test::WWW::Selenium::More::Manual::RunningTests>
 
 How to run Selenium tests.  Walk through several common scenarios
 including headless tests and slow tests.

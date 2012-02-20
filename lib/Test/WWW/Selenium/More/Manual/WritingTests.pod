@@ -9,9 +9,9 @@ Test::WWW::Selenium::Manual - Testing with Selenium
 
     # in the file t/test.t write the following code:
     use Test::Most;
-    use Test::WWW::Selenium;
+    use Test::WWW::Selenium::More;
 
-    my $s = Test::WWW::Selenium->new( 
+    my $s = Test::WWW::Selenium::More->new( 
         host           => "localhost",
         port           => 4444,
         browser        => "*firefox",
@@ -32,7 +32,34 @@ Test::WWW::Selenium::Manual - Testing with Selenium
 
 =head1 COMPOSING YOUR TESTS USING ROLES
 
-TODO
+Lets say you have decided to use Test::WWW::Selenium::More.  However you want
+to add some of your own custom methods.  Instead of extending
+Test::WWW::Selenium::More, try grouping your methods by subject using Moose
+roles.  Here is an example.
+
+    # Create a role
+    use MySeleniumRoles::Auth;
+    use Moose::Role;
+
+    sub login_ok {
+        my ($self, $username, $password) = @_;
+        $self->open_ok('/login');
+        $self->type_ok('username' => $username);
+        $self->type_ok('password' => $password);
+        $self->follow_link_ok('login');
+    }
+
+
+    # Use it in your test
+    use Test::Most;
+    use Test::WWW::Selenium::More;
+
+    Test::WWW::Selenium::More->new(...)
+        ->login_ok('Bartholomew', 'h@ts');
+        ->title_like(qr/Thanks for logging in Bartholomew/);
+
+    done_testing;
+    
 
 
 =head1 METHOD CHAINING

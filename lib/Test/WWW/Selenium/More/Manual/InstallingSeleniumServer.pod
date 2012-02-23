@@ -1,8 +1,8 @@
-package Test::WWW::Selenium::Manual::InstallingSeleniumServer;
+package Test::WWW::Selenium::More::Manual::InstallingSeleniumServer;
 
 =head1 NAME
 
-Test::WWW::Selenium::Manual::InstallingSeleniumServer
+Test::WWW::Selenium::More::Manual::InstallingSeleniumServer
 
 
 =head1 INSTALL THE SELENIUM SERVER
@@ -23,7 +23,7 @@ Xvfb or X virtual frame buffer is an X server that enables you to run X windows
 applications without showing any screen output.  If you run this with a
 Selenium server, you can run your tests on various browsers on a server with no
 monitor and without X windows installed.  See an example of how to do this in
-L<Test::WWW::Selenium::Manual::RunningTests>.
+L<Test::WWW::Selenium::More::Manual::RunningTests>.
 
 To install Xvfb on Ubuntu:
 

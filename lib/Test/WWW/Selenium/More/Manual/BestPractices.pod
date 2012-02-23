@@ -1,8 +1,8 @@
-package Test::WWW::Selenium::Manual::BestPractices;
+package Test::WWW::Selenium::More::Manual::BestPractices;
 
 =head1 NAME
 
-Test::WWW::Selenium::Manual::BestPractices - Best practices for writing Selenium tests
+Test::WWW::Selenium::More::Manual::BestPractices - Best practices for writing Selenium tests
 
 
 =head1 BEST PRACTICES

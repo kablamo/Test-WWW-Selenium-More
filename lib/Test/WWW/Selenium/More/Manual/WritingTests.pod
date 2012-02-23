@@ -32,7 +32,7 @@ Test::WWW::Selenium::Manual - Testing with Selenium
 
 =head1 COMPOSING YOUR TESTS USING ROLES
 
-Lets say you have decided to use Test::WWW::Selenium::More.  However you want
+Lets say you have decided to use Test::WWW::Selenium::More, but you want
 to add some of your own custom methods.  Instead of extending
 Test::WWW::Selenium::More, try grouping your methods by subject using Moose
 roles.  Here is an example.
@@ -44,17 +44,30 @@ roles.  Here is an example.
     sub login_ok {
         my ($self, $username, $password) = @_;
         $self->open_ok('/login');
+        $self->is_text_present_ok('Please login thanks');
         $self->type_ok('username' => $username);
         $self->type_ok('password' => $password);
         $self->follow_link_ok('login');
     }
 
+    sub logout_ok {
+        my ($self, $username, $password) = @_;
+        $self->follow_link_ok('logout');
+        $self->is_text_present_ok('Goodbye');
+    }
 
-    # Use it in your test
+    # Subclass Test::WWW::Selenium::More
+    package MySelenium;
+    use Moose;
+    extends 'Test::WWW::Selenium::More';
+    with 'MySeleniumRoles::Auth';
+
+
+    # Use MySelenium in your test
     use Test::Most;
-    use Test::WWW::Selenium::More;
+    use MySelenium;
 
-    Test::WWW::Selenium::More->new(...)
+    MySelenium->new(...)
         ->login_ok('Bartholomew', 'h@ts');
         ->title_like(qr/Thanks for logging in Bartholomew/);
 

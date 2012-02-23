@@ -1,0 +1,45 @@
+package Test::WWW::Selenium::More::Manual::ForTheImpatient;
+
+=head1 NAME
+
+Test::WWW::Selenium::More::Manual::ForTheImpatient - Selenium testing for the impatient
+
+
+=head1 INSTALL THE SELENIUM SERVER
+
+Selenium is written in Java.  So you need Java.  Then download the latest
+selenium server jar file from http://seleniumhq.org/download.  Put it anywhere.
+
+
+=head1 WRITE A BASIC SELENIUM TEST
+
+    # put the following code into t/test.t
+
+    use Test::Most;
+    use Test::WWW::Selenium::More;
+
+    my $s = Test::WWW::Selenium::More->new( 
+        host        => 'localhost',
+        port        => 80,
+        browser_url => "http://www.google.com",
+    );
+
+    $s->open_ok("http://www.google.com");
+    $s->title_like(qr/Google Search/);
+
+    done_testing;
+
+
+=head1 RUN YOUR SELENIUM TEST
+
+    # Start your web server on localhost, port 80
+    ...
+
+    # Start the Selenium server
+    java -jar selenium-server.jar -port 4444 -trustAllSSLCertificates -browserSessionReuse
+
+    # Run your tests against localhost, port 80
+    prove -lrv t/test.t
+
+
+=cut

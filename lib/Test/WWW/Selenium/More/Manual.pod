@@ -1,76 +1,50 @@
 package Test::WWW::Selenium::More::Manual;
 
-=head1 INSTALL THE SELENIUM SERVER
+=head1 NAME
 
-Selenium is written in Java.  So you need Java.  Then download the latest jar
-file from http://seleniumhq.org/download.  Put it anywhere.
-
-
-=head1 WRITE A BASIC SELENIUM TEST
-
-    # in the file t/test.t write the following code:
-    use Test::WWW::Selenium::More;
-    my $s = Test::WWW::Selenium::More->new; 
-    $s->note('this is a test.  this is only a test.')
-      ->open_ok("/");
+Test::WWW::Selenium::More::Manual - Testing with Selenium
 
 
-=head1 RUNNING SELENIUM TESTS
+=head1 INTRODUCTION
 
-This section describes setting up and running Selenium tests on the command
-line.
+Test-WWW-Selenium is a test library that enables you to write user interface
+tests for your web application.  You can fill out forms, click buttons and
+links, and generally control any supported browser from your Perl tests.  
 
-Basic setup
+It works by sending commands to a Selenium server via HTTP GET/POST requests.
+The Selenium server spawns a browser and controls it using using JavaScript.
 
-    # Start your web server on localhost (port 80)
-    ...
-
-    # Start the Selenium server
-    java -jar selenium-server.jar -port 4444 -trustAllSSLCertificates -browserSessionReuse
-
-    # Run your tests against localhost (port 80)
-    prove -lrv t/test.t
+You can also watch your tests interacting with your web application in the
+browser.
 
 
-Headless server setup
+=head1 TABLE OF CONTENTS
 
-    # Start Xvfb so you can run a web browser without X Windows
-    Xvfb :99
+=over 4
 
-    # Start the Selenium server
-    DISPLAY=:99 java -jar selenium-server.jar -port 4444 -trustAllSSLCertificates -browserSessionReuse
+=item L<Test::WWW::Selenium::More::Manual::ForTheImpatient>
 
-    # Run your tests: 
-    prove -lrv t/test.t
+Selenium testing for the impatient:  A short example demonstrating writing
+and running Perl Selenium tests.
 
+=item L<Test::WWW::Selenium::More::Manual::InstallSelenium>
 
-Run Selenium tests against a remote website
+How to install Selenium.
 
-    SELENIUM_BROWSER_URL=http://example.com prove -lrv t/test.t
+=item L<Test::WWW::Selenium::More::Manual::WritingTests>
 
+How to write Selenium tests.  Includes examples.
 
-Run tests against a remote Selenium server
+=item L<Test::WWW::Selenium::More::Manual::RunningTests>
 
-    # Start the Selenium server on the remote host (lets say 99.99.99.99).  
-    # Then run your tests locally like this:
-    SELENIUM_HOST=99.99.99.99 prove -lrv t/test.t
+How to run Selenium tests.  Walk through several common scenarios
+including headless tests and slow tests.
 
+=item L<Test::WWW::Selenium::More::Manual::BestPractices>
 
-Running tests slowly
+Avoid the most common mistakes.  
 
-    # Test fly by too fast sometimes.  This slows things down.  It basically
-    # calls sleep after every call to the Selenium server
-    SELENIUM_SLEEP=1 prove -lrv t/test.t
-
-
-Also see the ENVIRONMENT VARIABLES section of L<Test::WWW::Selenium::More>
-documentation.
-
-
-=head1 WRITING MORE ADVANCED TESTS
-
-TODO
-
+=back
 
 
 =cut

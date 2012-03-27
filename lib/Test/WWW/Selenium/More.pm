@@ -36,8 +36,9 @@ See the RUNNING TESTS section of Test::WWW::Selenium::More::Manual.
 
 =head1 ENVIRONMENT VARIABLES
 
-The following environment variables will affect the behavior of this library.
-They correspond to the attributes below.
+The following is a list of environment variables that affect the behavior of
+this library.  There are corresponding attributes for each (see the ATTRIBUTES
+section).
 
 =head2 SELENIUM_HOST
 

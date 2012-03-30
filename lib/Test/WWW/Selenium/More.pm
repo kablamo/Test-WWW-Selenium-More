@@ -91,14 +91,6 @@ Defaults to 0.
 
 A HashRef of saved values.  This behaves similar to the Catalyst stash.
 
-=head2 keep_alive
-
-Defaults to 5
-
-=head2 http_method
-
-Defaults to 'POST'
-
 
 =cut
 

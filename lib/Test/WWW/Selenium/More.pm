@@ -23,15 +23,15 @@ Test::WWW::Selenium::More - Useful methods for Selenium testing
 
 =head1 DESCRIPTION
 
-This library extends Test::WWW::Selenium.   Please see that module's
-documentation.
-
 This library also provides method chaining and extra convenience methods. 
+
+This library extends L<Test::WWW::Selenium>.   Please see that module's
+documentation as well.
 
 
 =head1 RUNNING TESTS
 
-See the RUNNING TESTS section of Test::WWW::Selenium::More::Manual.
+See the RUNNING TESTS section of L<Test::WWW::Selenium::More::Manual>.
 
 
 =head1 ENVIRONMENT VARIABLES
@@ -90,6 +90,15 @@ Defaults to 0.
 =head2 stash
 
 A HashRef of saved values.  This behaves similar to the Catalyst stash.
+
+=head2 keep_alive
+
+Defaults to 5
+
+=head2 http_method
+
+Defaults to 'POST'
+
 
 =cut
 
@@ -562,7 +571,7 @@ sub change_speed {
 
 =head1 AUTHOR
 
-Eric Johnson, kablamo at iijo dot nospamthankyew dot org
+Eric Johnson, kablamo at iijo dot nospamthankyou dot org
 
 =cut
 

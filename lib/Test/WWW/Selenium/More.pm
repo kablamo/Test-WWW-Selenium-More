@@ -98,9 +98,9 @@ has browser_url => (
     required => 1,
     lazy     => 1
 );
-has autostop => ( is => 'rw', isa => 'Bool', builder => '_autostop' );
-has slow     => ( is => 'rw', isa => 'Int', builder => '_slow' );
-has _stash => ( is => 'rw', isa => 'HashRef', default => sub { {} } );
+has autostop => ( is => 'rw', isa => 'Bool',    builder => '_autostop' );
+has slow     => ( is => 'rw', isa => 'Int',     builder => '_slow' );
+has _stash   => ( is => 'rw', isa => 'HashRef', default => sub { {} } );
 
 sub _host     { $ENV{SELENIUM_HOST}     || 'localhost' }
 sub _port     { $ENV{SELENIUM_PORT}     || 4444 }
@@ -108,7 +108,9 @@ sub _browser  { $ENV{SELENIUM_BROWSER}  || '*chrome' }
 sub _autostop { $ENV{SELENIUM_AUTOSTOP} || 1 }
 sub _slow     { $ENV{SELENIUM_SLOW}     || 0 }
 
-sub _browser_url { $ENV{SELENIUM_BROWSER_URL} || confess 'browser_url is required' }
+sub _browser_url {
+    $ENV{SELENIUM_BROWSER_URL} || confess 'browser_url is required';
+}
 
 # Delegation.  This effectively wraps Test::WWW::Selenium.
 # TODO I think this is kinda slow.  Or maybe Moose is always slow?
@@ -123,7 +125,7 @@ has selenium => (
 );
 
 sub _selenium {
-    my $self = shift;
+    my $self     = shift;
     my $selenium = Test::WWW::Selenium->new(
         port        => $self->port,
         host        => $self->host,
@@ -251,11 +253,10 @@ sub follow_link_ok {
     $test_description .= $text
         if defined $text;
 
-    my $return_value = $self->click( $locator )
+    my $return_value = $self->click($locator)
         && $self->_wait_with_message();
 
-    Test::Most::ok($return_value, $test_description);
-    
+    Test::Most::ok( $return_value, $test_description );
 
     return $self;
 }
@@ -330,7 +331,7 @@ sub submit_form_ok {
         if $form->{click};
 
     if ( $form->{submit} ) {
-        $self->submit_ok( $form->{ submit } )
+        $self->submit_ok( $form->{submit} )
             && $self->_wait_with_message();
     }
 
@@ -350,7 +351,7 @@ sub wait_for_jquery_ok {
 
     $self->wait_for_condition_ok(
         'selenium.browserbot.getCurrentWindow().jQuery.active == 0',
-        $self->_timeout,                               #
+        $self->_timeout,                                 #
         'wait_for_jquery_to_load, ' . $self->_timeout    #
     );
 
@@ -383,7 +384,7 @@ the $menu_option from the dropdown.  Then it will call wait_for_page_to_load().
 
 sub select_and_page_load_ok {
     my $self = shift;
-    $self->select_ok( @_ )
+    $self->select_ok(@_)
         && $self->wait_for_page_to_load_ok;
     return $self;
 }
@@ -521,8 +522,18 @@ sub download_file_ok {
     my $self    = shift or die;
     my $locator = shift or die;
     my $url     = $self->get_attribute( $locator . '@href' );
+
+    my $return_value = $self->get_eval(
+        qq{1 + 1},
+        $self->_timeout,    #
+        qq{downloading $url, } . $self->_timeout
+    );                      #
+    Test::Most::is( $return_value, 2,
+        qq{Download host is reachable: $return_value} )
+        or return $self;
+
     $self->run_script(
-        'function testDownload() {
+        'function seleniumDownloadFileOk() {
              var xmlhttp=new XMLHttpRequest();
              xmlhttp.open("GET","' . $url . '",false);
              xmlhttp.send("");
@@ -531,10 +542,11 @@ sub download_file_ok {
         $self->_timeout,                            #
         '0 downloading $url, ' . $self->_timeout    #
     );
+
     my $status = $self->get_eval(
-        qq{selenium.browserbot.getCurrentWindow().testDownload()},
+        'selenium.browserbot.getCurrentWindow().seleniumDownloadFileOk()',
         $self->_timeout,                            #
-        qq{downloading $url, } . $self->_timeout
+        "downloading ${url}" . $self->_timeout
     );                                              #
 
     Test::Most::is( $status, 200, qq{Download status: $status} );
@@ -549,7 +561,7 @@ returns $self so that you can do method chaining.
 =cut
 
 sub change_speed {
-    my $self    = shift or die;
+    my $self = shift or die;
     my $seconds = shift || 0;
     $self->slow($seconds);
     return $self;

@@ -1,8 +1,8 @@
-package Test::WWW::Selenium::Manual::ForTheImpatient;
+package Test::WWW::Selenium::More::Manual::ForTheImpatient;
 
 =head1 NAME
 
-Test::WWW::Selenium::Manual::ForTheImpatient - Selenium testing for the impatient
+Test::WWW::Selenium::More::Manual::ForTheImpatient - Selenium testing for the impatient
 
 
 =head1 INSTALL THE SELENIUM SERVER
@@ -16,7 +16,7 @@ selenium server jar file from http://seleniumhq.org/download.  Put it anywhere.
     # put the following code into t/test.t
 
     use Test::Most;
-    use Test::WWW::Selenium;
+    use Test::WWW::Selenium::More;
 
     my $s = Test::WWW::Selenium::More->new( 
         host        => 'localhost',

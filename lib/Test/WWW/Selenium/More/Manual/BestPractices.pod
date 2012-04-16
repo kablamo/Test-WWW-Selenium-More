@@ -1,8 +1,8 @@
-package Test::WWW::Selenium::Manual::BestPractices;
+package Test::WWW::Selenium::More::Manual::BestPractices;
 
 =head1 NAME
 
-Test::WWW::Selenium::Manual::BestPractices - Best practices for writing Selenium tests
+Test::WWW::Selenium::More::Manual::BestPractices - Best practices for writing Selenium tests
 
 
 =head1 BEST PRACTICES
@@ -11,22 +11,20 @@ Following these guidelines will make your life easier when writing Selenium
 tests.  They are listed in order of importance.
 
 
-=head2 If you use jQuery, never ever never pause() or sleep()
+=head2 Don't use pause() or sleep()
 
-Many people use pause() or sleep() because wait_for_page_to_load_ok() doesn't
-work for them.  The reason it doesn't work is because page components are
-loading via JavaScript and wait_for_page_to_load_ok() doesn't concern itself
-with anything JavaScript related.
+Sometimes people use pause() or sleep() because wait_for_page_to_load_ok()
+doesn't work for them.  The reason it doesn't work is because page components
+are loading via JavaScript and wait_for_page_to_load_ok() doesn't concern
+itself with anything JavaScript related.
 
 But using these methods will make your tests take a long time and will cause
 hard to reproduce intermittent failures and generally drive you crazy.  
 
-The solution is to always use wait_for_page_to_load_ok() when there is no AJAXy
-jQueryy behavior happening and to use jquery_wait_for_page_to_load_ok() there
-is.  Or use methods which call them underneath like follow_link_ok() and
-jquery_click_ok().
+If your page uses jQuery, use jquery_wait_for_page_to_load_ok().
 
-Unfortunately this solution only works with jQuery.
+If your page doesn't use jQuery you can use wait_for_text_present_ok() in most
+cases.
 
 =head2 Always use XPATH locators
 

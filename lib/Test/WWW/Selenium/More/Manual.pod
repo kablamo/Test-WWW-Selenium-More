@@ -44,15 +44,6 @@ including headless tests and slow tests.
 
 Avoid the most common mistakes.  
 
-=item L<Test::WWW::Selenium::More::Manual::AllMethods>
-
-A complete list of methods available.  Test::WWW::Selenium inherits from
-WWW::Selenium which sends commands to the Selenium server.  Each layer builds
-on the last and each layer introduces new commands.  This document provides a
-complete list of all the methods provided by all layers.
-
-TODO
-
 =back
 
 

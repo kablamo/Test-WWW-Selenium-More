@@ -7,7 +7,7 @@ use lib 'lib';
 plan skip_all => "No Selenium server found!" 
     unless server_is_running;
 
-my $s = Test::WWW::Selenium->new(
+my $s = Test::WWW::Selenium::More->new(
     host           => "localhost",
     browser        => "*firefox",
     browser_url    => "http://localhost:5000",

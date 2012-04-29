@@ -10,10 +10,10 @@ plan skip_all => "No Selenium server found!"
 my $s = Test::WWW::Selenium::More->new(
     host           => "localhost",
     browser        => "*firefox",
-    browser_url    => "http://localhost:5000",
+    browser_url    => "http://google.com",
 );
 $s->open_ok('/');
-$s->is_text_present_ok('Smells like dinosaurs');
+$s->is_text_present_ok('Google');
 $s->stop;
 
 done_testing;

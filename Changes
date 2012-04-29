@@ -1,2 +1,3 @@
-0.08 Sun Apr 29 13:08:23 BST 2012
+0.09 Sun Apr 29 13:08:23 BST 2012
     * Slightly better POD
+    * Slightly more informative errors for download_ok()

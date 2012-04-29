@@ -54,27 +54,27 @@
    "provides" : {
       "Test::WWW::Selenium::More" : {
          "file" : "lib/Test/WWW/Selenium/More.pm",
-         "version" : "0.001"
+         "version" : "0.09"
       },
       "Test::WWW::Selenium::More::Manual" : {
          "file" : "lib/Test/WWW/Selenium/More/Manual/WritingTests.pod",
-         "version" : "0.001"
+         "version" : "0.09"
       },
       "Test::WWW::Selenium::More::Manual::BestPractices" : {
          "file" : "lib/Test/WWW/Selenium/More/Manual/BestPractices.pod",
-         "version" : "0.001"
+         "version" : "0.09"
       },
       "Test::WWW::Selenium::More::Manual::ForTheImpatient" : {
          "file" : "lib/Test/WWW/Selenium/More/Manual/ForTheImpatient.pod",
-         "version" : "0.001"
+         "version" : "0.09"
       },
       "Test::WWW::Selenium::More::Manual::InstallingSeleniumServer" : {
          "file" : "lib/Test/WWW/Selenium/More/Manual/InstallingSeleniumServer.pod",
-         "version" : "0.001"
+         "version" : "0.09"
       },
       "Test::WWW::Selenium::More::Manual::RunningTests" : {
          "file" : "lib/Test/WWW/Selenium/More/Manual/RunningTests.pod",
-         "version" : "0.001"
+         "version" : "0.09"
       }
    },
    "release_status" : "stable",
@@ -89,6 +89,6 @@
          "web" : "https://github.com/kablamo/Test-WWW-Selenium-More"
       }
    },
-   "version" : "0.001"
+   "version" : "0.09"
 }
 

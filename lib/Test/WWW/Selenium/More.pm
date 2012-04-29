@@ -5,88 +5,40 @@ use Moose;
 use Test::WWW::Selenium;
 use namespace::autoclean;
 
-# ABSTRACT: More useful tools for Selenium testing
+# VERSION
 
-=head1 SYNOPSIS
+=attr host
 
-    use Test::WWW::Selenium::More;
-    Test::WWW::Selenium::More->new
-      ->note('this is a test.  this is only a test.')
-      ->open_ok("/") 
-      ->is_text_present_ok("Welcome to the internet") 
-      ->download_file_ok('link=Download my file');
-    
+The hostname or ip address of the Selenium server.  Defaults to 'localhost'.
 
-=head1 DESCRIPTION
+=attr port
 
-This library also provides method chaining and extra convenience methods. 
+The port of the Selenium server.  Defaults to '4444'.
 
-This library extends L<Test::WWW::Selenium>.   Please see that module's
-documentation as well.
+=attr browser
 
+The browser to run tests against on the Selenium server.  Defaults to
+'*chrome'.
 
-=head1 RUNNING TESTS
+=attr browser_url
 
-See the RUNNING TESTS section of L<Test::WWW::Selenium::More::Manual>.
+The Selenium server runs tests against this website.  
 
+=attr autostop
 
-=head1 ENVIRONMENT VARIABLES
+When $selenium goes out of scope the browser will be automatically shut down if
+this attribute is set to true.  Otherwise stop() must be called explicitly.
+Defaults to 1.
 
-The following is a list of environment variables that affect the behavior of
-this library.  There are corresponding attributes for each (see the ATTRIBUTES
-section).
-
-=head2 SELENIUM_HOST
-
-=head2 SELENIUM_PORT
-
-=head2 SELENIUM_BROWSER
-
-=head2 SELENIUM_BROWSER_URL
-
-=head2 SELENIUM_TIMEOUT
-
-=head2 SELENIUM_AUTOSTOP
-
-=head2 SELENIUM_SLOW
-
-
-=head1 ATTRIBUTES
-
-=head2 host
-
-The hostname or ip address of the Selenium RC server
-
-=head2 port
-
-The port of the Selenium RC server
-
-=head2 browser
-
-The browser to run tests against on the Selenium RC server
-
-=head2 browser_url
-
-The website to run tests against on the Selenium RC server
-
-=head2 autostop
-
-If true, when $selenium goes out of scope, the browser will be automatically
-closed.  Otherwise you will need to call stop() explicitly to close the
-browser.
-
-=head2 slow
+=attr slow
 
 The number of seconds to sleep after each call to any Test::WWW::Selenium
 method.  This is useful for slowing down tests if you are watching them run in
-a browser.
+a browser.  Defaults to 0.
 
-Defaults to 0.
-
-=head2 stash
+=attr stash
 
 A HashRef of saved values.  This behaves similar to the Catalyst stash.
-
 
 =cut
 
@@ -193,11 +145,7 @@ around wait_for_page_to_load => sub {
 
 __PACKAGE__->meta->make_immutable;
 
-=head1 FUNCTIONS
-
-=cut
-
-=head2 load_data( $file )
+=method load_data( $file )
 
 Returns a data structure from $file.  $file must have valid Perl syntax.
 
@@ -238,7 +186,7 @@ sub _wait_with_message {
     return $self;
 }
 
-=head2 follow_link_ok( $locator, $test_description )
+=method follow_link_ok( $locator, $test_description )
 
 Returns $self.
 
@@ -263,7 +211,7 @@ sub follow_link_ok {
     return $self;
 }
 
-=head2 fill_form_ok( $form )
+=method fill_form_ok( $form )
 
 Returns $self.
 
@@ -300,7 +248,7 @@ sub fill_form_ok {
     return $self;
 }
 
-=head2 submit_form_ok( $form )
+=method submit_form_ok( $form )
 
 Returns $self.
 
@@ -340,7 +288,7 @@ sub submit_form_ok {
     return $self;
 }
 
-=head2 wait_for_jquery_ok()
+=method wait_for_jquery_ok()
 
 Returns $self.
 
@@ -360,7 +308,7 @@ sub wait_for_jquery_ok {
     return $self;
 }
 
-=head2 jquery_select_ok($locator, $menu_option)
+=method jquery_select_ok($locator, $menu_option)
 
 Returns $self.
 
@@ -375,7 +323,7 @@ sub jquery_select_ok {
     return $self;
 }
 
-=head2 select_and_page_load_ok($locator, $menu_option)
+=method select_and_page_load_ok($locator, $menu_option)
 
 Returns $self.
 
@@ -391,7 +339,7 @@ sub select_and_page_load_ok {
     return $self;
 }
 
-=head2 jquery_click_ok($locator, $menu_option)
+=method jquery_click_ok($locator, $menu_option)
 
 Returns $self.
 
@@ -406,7 +354,7 @@ sub jquery_click_ok {
     return $self;
 }
 
-=head2 stash_text( $locator => $key )
+=method stash_text( $locator => $key )
 
 Returns $self.
 
@@ -423,7 +371,7 @@ sub stash_text {
     return $self;
 }
 
-=head2 stash_location( $key )
+=method stash_location( $key )
 
 Returns $self.
 
@@ -438,7 +386,7 @@ sub stash_location {
     return $self;
 }
 
-=head2 from_stash( $key )
+=method from_stash( $key )
 
 Returns a value from the stash.
 
@@ -450,7 +398,7 @@ sub from_stash {
     return $self->_stash->{$key};
 }
 
-=head2 stash( $value => $key )
+=method stash( $value => $key )
 
 Returns $self.
 
@@ -466,7 +414,7 @@ sub stash {
     return $self;
 }
 
-=head2 note( $msg )
+=method note( $msg )
 
 Returns $self.
 
@@ -480,7 +428,7 @@ sub note {
     return $self;
 }
 
-=head2 is_text_not_present_ok( $text )
+=method is_text_not_present_ok( $text )
 
 Returns $self.
 
@@ -495,7 +443,7 @@ sub is_text_not_present_ok {
     return $self;
 }
 
-=head2 note_line( $msg )
+=method note_line( $msg )
 
 Outputs an underlined message, useful for dividing up test output. If no
 message specified, then just prints the separator line.
@@ -513,7 +461,7 @@ sub note_line {
     return $self;
 }
 
-=head2 download_file_ok($locator)
+=method download_file_ok($locator)
 
 Parses the href attribute from a link on the current page.  Downloads that url
 via javascript's XMLHttpRequest.  Checks that response status is 200.
@@ -555,7 +503,7 @@ sub download_file_ok {
     return $self;
 }
 
-=head2 change_speed($seconds)
+=method change_speed($seconds)
 
 This just updates the slow() attribute.  The only difference is that it
 returns $self so that you can do method chaining. 
@@ -570,6 +518,54 @@ sub change_speed {
 }
 
 1;
+
+# ABSTRACT: More tools for Selenium testing
+
+=head1 SYNOPSIS
+
+    use Test::WWW::Selenium::More;
+
+    Test::WWW::Selenium::More->new()
+      ->note('this is a test.  this is only a test.')
+      ->open_ok("/") 
+      ->is_text_present_ok("Welcome to the internet") 
+      ->download_file_ok('link=Download my file');
+    
+
+=head1 DESCRIPTION
+
+If you are new to this module or Selenium testing in general, see the
+L<Test::WWW::Selenium::More::Manual>.
+
+This module provides method chaining and some useful tools for Selenium
+testing.
+
+This library extends L<Test::WWW::Selenium>.   Please see that module's
+documentation as well.
+
+
+=head1 ENVIRONMENT VARIABLES
+
+The following is a list of environment variables that affect the behavior of
+this library.  Each corresponds to an attribute (see the ATTRIBUTES
+section).
+
+=head2 SELENIUM_HOST
+
+=head2 SELENIUM_PORT
+
+=head2 SELENIUM_BROWSER
+
+=head2 SELENIUM_BROWSER_URL
+
+=head2 SELENIUM_TIMEOUT
+
+=head2 SELENIUM_AUTOSTOP
+
+=head2 SELENIUM_SLOW
+
+=cut
+
 
 # I used this command to get the list of functions in WWW::Selenium:
 #    grep '=item $sel-' /usr/local/lib/perl/5.10.0/WWW/Selenium.pm

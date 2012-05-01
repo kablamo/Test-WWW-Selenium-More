@@ -37,7 +37,7 @@ own custom methods.  Instead of extending Test::WWW::Selenium::More, try
 grouping your methods by subject using Moose roles.  Here is an example.
 
     # Create a role
-    use MySeleniumRoles::Auth;
+    package MySeleniumRoles::Auth;
     use Moose::Role;
 
     sub login_ok {

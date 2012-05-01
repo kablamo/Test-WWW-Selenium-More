@@ -16,8 +16,8 @@ Test::WWW::Selenium::More::Manual - Testing with Selenium
         port           => 4444,        # selenium server port
         browser        => "*firefox",
         browser_url    => "http://www.google.com",
-        default_names  => 1,
-        error_callback => sub { ... },
+        # default_names  => 1,           # TODO: not yet implemented
+        # error_callback => sub { ... }, # TODO: not yet implemented
     );
 
     $s->open_ok("http://www.google.com", undef, "fetched G's site alright");

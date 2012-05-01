@@ -19,26 +19,26 @@ selenium server jar file from http://seleniumhq.org/download.  Put it anywhere.
     use Test::WWW::Selenium::More;
 
     my $s = Test::WWW::Selenium::More->new( 
-        host        => 'localhost',
-        port        => 80,
-        browser_url => "http://www.google.com",
+        host        => 'localhost', # selenium server host
+        port        => 4444,        # selenium server port
+        browser_url => "http://localhost:5000",
     );
 
-    $s->open_ok("http://www.google.com");
-    $s->title_like(qr/Google Search/);
+    $s->open_ok("/");
+    $s->title_like(qr/Hello world/);
 
     done_testing;
 
 
 =head1 RUN YOUR SELENIUM TEST
 
-    # Start your web server on localhost, port 80
+    # Start your web server on localhost, port 5000
     ...
 
     # Start the Selenium server
     java -jar selenium-server.jar -port 4444 -trustAllSSLCertificates -browserSessionReuse
 
-    # Run your tests against localhost, port 80
+    # Run your tests against localhost, port 5000
     prove -lrv t/test.t
 
 

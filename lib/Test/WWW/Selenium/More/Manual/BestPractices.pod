@@ -14,22 +14,22 @@ tests.  They are listed in order of importance.
 =head2 Don't use pause() or sleep()
 
 Sometimes people use pause() or sleep() because wait_for_page_to_load_ok()
-doesn't work for them.  The reason it doesn't work is because page components
-are loading via JavaScript and wait_for_page_to_load_ok() doesn't concern
-itself with anything JavaScript related.
+doesn't work for them.  The reason it doesn't work is page components are
+loading via JavaScript and wait_for_page_to_load_ok() ignores anything
+JavaScript related.
 
-But using these methods will make your tests take a long time and will cause
-hard to reproduce intermittent failures and generally drive you crazy.  
+However using these methods will make your tests take a long time and will
+cause hard to reproduce intermittent failures and generally drive you crazy.  
 
 If your page uses jQuery, use jquery_wait_for_page_to_load_ok().
 
 If your page doesn't use jQuery you can use wait_for_text_present_ok() in most
 cases.
 
-=head2 Always use XPATH locators
+=head2 Use XPATH locators
 
 CSS can't choose the nth thing in a list or table.  XPATH can.  For the sake of
-consistency, always use XPATH.
+consistency you may want to stay with XPATH.
 
 =head2 Use comments when things get complicated
 

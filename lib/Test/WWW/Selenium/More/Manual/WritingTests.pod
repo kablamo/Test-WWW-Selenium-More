@@ -2,7 +2,7 @@ package Test::WWW::Selenium::More::WritingTests;
 
 =head1 NAME
 
-Test::WWW::Selenium::More::Manual - Testing with Selenium
+Test::WWW::Selenium::More::Manual::WritingTests
 
 
 =head1 A BASIC SELENIUM TEST

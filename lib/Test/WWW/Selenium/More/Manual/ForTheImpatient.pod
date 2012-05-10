@@ -2,7 +2,7 @@ package Test::WWW::Selenium::More::Manual::ForTheImpatient;
 
 =head1 NAME
 
-Test::WWW::Selenium::More::Manual::ForTheImpatient - Selenium testing for the impatient
+Test::WWW::Selenium::More::Manual::ForTheImpatient
 
 
 =head1 INSTALL THE SELENIUM SERVER

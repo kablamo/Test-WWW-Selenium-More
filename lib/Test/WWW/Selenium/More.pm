@@ -292,7 +292,7 @@ sub submit_form_ok {
 
 Returns $self.
 
-This blocks until jQuery.active to return false.
+This blocks until jQuery.active returns false.
 
 =cut
 

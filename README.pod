@@ -136,7 +136,7 @@ without submit buttons.
 
 Returns $self.
 
-This blocks until jQuery.active to return false.
+This blocks until jQuery.active returns false.
 
 =head2 jquery_select_ok($locator, $menu_option)
 

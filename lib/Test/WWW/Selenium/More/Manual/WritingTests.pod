@@ -1,4 +1,4 @@
-package Test::WWW::Selenium::More::WritingTests;
+package Test::WWW::Selenium::More::Manual::WritingTests;
 
 =head1 NAME
 
